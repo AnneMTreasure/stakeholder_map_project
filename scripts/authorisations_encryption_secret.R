@@ -17,7 +17,7 @@ library(googlesheets4)
 # 3 # copy the email address from the .json; add this email as an editor to your Google sheets in the 'Share' settings
 # 4 # point 'gs4_auth()' to the .json from step 3:
 
-gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map_project_2/stakeholder-map-gsheets-access-b505f81e6844.json")
+gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map_project/stakeholder-map-gsheets-access-b505f81e6844.json")
 
 form_data <-
   read_sheet(
@@ -44,7 +44,7 @@ encrypt_token(service = "GSHEET_ACCESS",
               input = "stakeholder-map-gsheets-access-b505f81e6844.json",
               destination = "~/src/stakeholder_map_project_2/") # can check in terminal the .secret folder is there
 
-gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map_projcet_2/.secret/GSHEET_ACCESS")
+gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map_projcet/.secret/GSHEET_ACCESS")
 
 form_data <-
   read_sheet(
