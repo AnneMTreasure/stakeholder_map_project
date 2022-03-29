@@ -7,8 +7,8 @@ library(tidyverse)
 library(googlesheets4)
 
 #### set up authorisations to read from the Google sheet ####
+# To demonstrate, a dummy google spreadsheet:
 
-# for GitHub Action (adapted from https://github.com/jdtrat/tokencodr-google-demo)
 
 ###### === LOCALLY WITH .JSON IN R PROJECT FOLDER === ######
 
@@ -30,6 +30,7 @@ form_data <-
 renv::deactivate() # not sure if needed, want to make sure below is not using renviron
 
 ###### === LOCALLY WITH .JSON ENCRYPTED AND ADDED TO .SECRET === ######
+# for GitHub Action (adapted from https://github.com/jdtrat/tokencodr-google-demo)
 
 library(tokencodr)
 create_env_pw("GSHEET_ACCESS")
