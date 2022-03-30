@@ -1,4 +1,5 @@
 
+## Shiny app for the SADiLaR Stakeholder Map Project
 
 ####### ------- LOAD LIBRARIES ------- #######
 library(tidyverse)
