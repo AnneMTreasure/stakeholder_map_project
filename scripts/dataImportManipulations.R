@@ -2,7 +2,6 @@
 ## stakeholder map project script to:
 # - set authorisations to read from a Google spreadsheet (linked to Google Form)
 # - read in sheets for different record types
-# - 
 
 library(tidyverse)
 library(googlesheets4)

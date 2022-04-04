@@ -33,8 +33,6 @@ gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map/.secret/GSHEET_AC
 ####### ------- READ in GOOGLE SHEET DATA ------- #######
 ss = "https://docs.google.com/spreadsheets/d/1dflPxRV-JEoOinBnf24hIm1tqSDCjtwLaGZWSR0VipA/edit#gid=369134759"
 
-kumu <- read_sheet(ss, sheet = "kumu") # don't need to read this sheet in for manipulation. Its ready for Kumu. Need to start a new Kumu project, and link this spreadsheet to it
-
 locations <- read_sheet(ss, sheet = "Organisation_locations")
 
 project <- read_sheet(ss, sheet = "project") %>%
