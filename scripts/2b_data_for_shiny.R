@@ -27,8 +27,7 @@ form_data <- read_sheet("https://docs.google.com/spreadsheets/d/1-2rF3VNdkXzFKPj
 ###### ---------- Record type: PROJECT ---------- ######
 project <- form_data %>%
   filter(`1._What is the type of record you are submitting?` == "Project") %>%
-  select(c("Timestamp", "Email Address", starts_with(c("1.", "2")))) %>%
-  unite("Tags", 11:12, sep = ", ", remove = FALSE)
+  select(c("Timestamp", "Email Address", starts_with(c("1.", "2"))))
 
 names(project) <-
   c(
@@ -42,7 +41,6 @@ names(project) <-
     "contact_title",
     "Label",
     "Description",
-    "Tags",
     "Subjects",
     "methods",
     "Organisation",
@@ -58,14 +56,17 @@ names(project) <-
   )
 
 # fix punctuation for subject area & methods
-project$subject_area <- gsub(";, ", ";", project$subject_area)
-project$methods <- gsub(";, ", ";", project$methods)
+project$Subjects <- gsub(";, ", "; ", project$Subjects)
+project$Subjects <-  gsub('.{1}$', "", project$Subjects) # remove ; at the end
+
+project$methods <- gsub(";, ", "; ", project$methods)
+project$methods <-  gsub('.{1}$', "", project$methods)
+
 
 ###### ---------- Record type: PERSON ---------- ######
 person <- form_data %>%
   filter(`1._What is the type of record you are submitting?` == "Person") %>%
   select(c("Timestamp", "Email Address", starts_with(c("1.", "3")))) %>%
-  unite("Tags", 12:13, sep = ", ", remove = FALSE) %>%
   unite("Label", 6:8, sep = " ", remove = FALSE)
 
 names(person) <-
@@ -82,7 +83,6 @@ names(person) <-
     "Email",
     "Description",
     "keywords",
-    "Tags",
     "Subjects",
     "methods",
     "Organisation",
@@ -97,8 +97,11 @@ names(person) <-
   )
 
 # fix punctuation for subject area & methods
-person$subject_area <- gsub(";, ", ";", person$subject_area)
-person$methods <- gsub(";, ", ";", person$methods)
+person$Subjects <- gsub(";, ", "; ", person$Subjects)
+person$Subjects <-  gsub('.{1}$', "", person$Subjects) # remove ; at the end
+
+person$methods <- gsub(";, ", "; ", person$methods)
+person$methods <-  gsub('.{1}$', "", person$methods)
 
 
 ###### ---------- Record type: DATASET ---------- ######
@@ -137,8 +140,11 @@ names(dataset) <-
   )
 
 # fix punctuation for subject area & methods
-dataset$subject_area <- gsub(";, ", ";", dataset$subject_area)
-dataset$methods <- gsub(";, ", ";", dataset$methods)
+dataset$Subjects <- gsub(";, ", "; ", dataset$Subjects)
+dataset$Subjects <-  gsub('.{1}$', "", dataset$Subjects) # remove ; at the end
+
+dataset$methods <- gsub(";, ", "; ", dataset$methods)
+dataset$methods <-  gsub('.{1}$', "", dataset$methods)
 
 
 ###### ---------- Record type: TOOL ---------- ######
@@ -179,8 +185,11 @@ names(tool) <-
   )
 
 # fix punctuation for subject area & methods
-tool$subject_area <- gsub(";, ", ";", tool$subject_area)
-tool$methods <- gsub(";, ", ";", tool$methods)
+tool$Subjects <- gsub(";, ", "; ", tool$Subjects)
+tool$Subjects <-  gsub('.{1}$', "", tool$Subjects) # remove ; at the end
+
+tool$methods <- gsub(";, ", "; ", tool$methods)
+tool$methods <-  gsub('.{1}$', "", tool$methods)
 
 
 ###### ---------- Record type: PUBLICATION ---------- ######
@@ -219,8 +228,11 @@ names(publication) <-
   )
 
 # fix punctuation for subject area & methods
-publication$subject_area <- gsub(";, ", ";", publication$subject_area)
-publication$methods <- gsub(";, ", ";", publication$methods)
+publication$Subjects <- gsub(";, ", "; ", publication$Subjects)
+publication$Subjects <-  gsub('.{1}$', "", publication$Subjects) # remove ; at the end
+
+publication$methods <- gsub(";, ", "; ", publication$methods)
+publication$methods <-  gsub('.{1}$', "", publication$methods)
 
 
 ###### ---------- Record type: TRAINING ---------- ######
@@ -259,9 +271,11 @@ names(training) <-
   )
 
 # fix punctuation for subject area & methods
-training$subject_area <- gsub(";, ", ";", training$subject_area)
-training$methods <- gsub(";, ", ";", training$methods)
+training$Subjects <- gsub(";, ", "; ", training$Subjects)
+training$Subjects <-  gsub('.{1}$', "", training$Subjects) # remove ; at the end
 
+training$methods <- gsub(";, ", "; ", training$methods)
+training$methods <-  gsub('.{1}$', "", training$methods)
 
 ###### ---------- Record type: ARCHIVES ---------- ######
 archives <- form_data %>%
@@ -292,8 +306,11 @@ names(archives) <-
   )
 
 # fix punctuation for subject area & methods
-archives$subject_area <- gsub(";, ", ";", archives$subject_area)
-archives$methods <- gsub(";, ", ";", archives$methods)
+archives$Subjects <- gsub(";, ", "; ", archives$Subjects)
+archives$Subjects <-  gsub('.{1}$', "", archives$Subjects) # remove ; at the end
+
+archives$methods <- gsub(";, ", "; ", archives$methods)
+archives$methods <-  gsub('.{1}$', "", archives$methods)
 
 
 ###### ---------- Record type: LEARNING MATERIAL ---------- ######
@@ -330,8 +347,12 @@ names(learning_material) <-
   )
 
 # fix punctuation for subject area & methods
-learning_material$subject_area <- gsub(";, ", ";", learning_material$subject_area)
-learning_material$methods <- gsub(";, ", ";", learning_material$methods)
+learning_material$Subjects <- gsub(";, ", "; ", learning_material$Subjects)
+learning_material$Subjects <-  gsub('.{1}$', "", learning_material$Subjects) # remove ; at the end
+
+learning_material$methods <- gsub(";, ", "; ", learning_material$methods)
+learning_material$methods <-  gsub('.{1}$', "", learning_material$methods)
+
 
 ###### ---------- Record type: UNCLASSIFIED ---------- ######
 unclassified <- form_data %>%
@@ -362,11 +383,26 @@ names(unclassified) <-
   )
 
 # fix punctuation for subject area & methods
-unclassified$subject_area <- gsub(";, ", ";", unclassified$subject_area)
-unclassified$methods <- gsub(";, ", ";", unclassified$methods)
+unclassified$Subjects <- gsub(";, ", "; ", unclassified$Subjects)
+unclassified$Subjects <-  gsub('.{1}$', "", unclassified$Subjects) # remove ; at the end
+
+unclassified$methods <- gsub(";, ", "; ", unclassified$methods)
+unclassified$methods <-  gsub('.{1}$', "", unclassified$methods)
 
 
-###### ---------- DATA SHEETS FOR Shiny ---------- ######
+###### ---------- EXCLUDE DATA SUBMITTER INFO FOR SHINY ---------- ######
+project <- select(project, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+person <- select(person, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+dataset <- select(dataset, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+tool <- select(tool, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+publication <- select(publication, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+training <- select(training, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+archives <- select(archives, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+learning_material <- select(learning_material, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+unclassified <- select(unclassified, -c("Timestamp", "email_collected", "data_submitter_name", "data_submitter_email"))
+
+
+###### ---------- WRITE DATA SHEETS FOR Shiny ---------- ######
 ##### write to Google spreadsheet ##### 
 
 ss = "https://docs.google.com/spreadsheets/d/1fUf6SbWQttVVCUAZ2jH9z24qua1BqO05Qv2lLNllsCU/edit#gid=0"
