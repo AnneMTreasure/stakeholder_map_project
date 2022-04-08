@@ -19,8 +19,8 @@ icons <- awesomeIcons(
     addAwesomeMarkers(lng = ~long,
                      lat = ~lat,
                      icon = icons,
-                     popup = ~paste(Name,"|"," Subjects include: ", Subjects),
-                     label = ~paste(Name, " at ", Organisation),
+                     popup = ~paste(Label,"|"," Subjects include: ", Subjects),
+                     label = ~paste(Label, " at ", Organisation),
                      clusterOptions = markerClusterOptions()
     )
   

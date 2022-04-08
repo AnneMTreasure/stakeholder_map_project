@@ -21,7 +21,7 @@ gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map/.secret/MY_GOOGLE
 
 
 ###### ---------- READ DATA FROM GOOGLE SHEET ---------- ######
-form_data <- read_sheet("https://docs.google.com/spreadsheets/d/14bcVigbOOK8UiBa2uJFVpMzPrTkA0Wf6bfj0v5aiNNk/edit?resourcekey#gid=360225987")
+form_data <- read_sheet("https://docs.google.com/spreadsheets/d/1-2rF3VNdkXzFKPjUwMexedyVFxsamjO-8yAi7AVierY/edit?resourcekey#gid=1694945086")
 
 
 ###### ---------- Record type: PROJECT ---------- ######
@@ -43,7 +43,7 @@ names(project) <-
     "Label",
     "Description",
     "Tags",
-    "subject_area",
+    "Subjects",
     "methods",
     "Organisation",
     "Organisation_other",
@@ -83,7 +83,7 @@ names(person) <-
     "Description",
     "keywords",
     "Tags",
-    "subject_area",
+    "Subjects",
     "methods",
     "Organisation",
     "Organisation_other",
@@ -120,7 +120,7 @@ names(dataset) <-
     "Label",
     "Description",
     "keywords",
-    "subject_area",
+    "Subjects",
     "methods",
     "status",
     "publisher",
@@ -159,7 +159,7 @@ names(tool) <-
     "contact_email",
     "Label",
     "Description",
-    "subject_area",
+    "Subjects",
     "methods",
     "Organisation",
     "Organisation_other",
@@ -199,7 +199,7 @@ names(publication) <-
     "title",
     "abstract",
     "authors",
-    "subject_area",
+    "Subjects",
     "methods",
     "language_primary",
     "language_other",
@@ -242,8 +242,10 @@ names(training) <-
     "training_type",
     "Label",
     "Description",
-    "subject_area",
+    "Subjects",
     "methods",
+    "Organisation",
+    "Organisation_other",
     "year",
     "length",
     "frequency",
@@ -251,13 +253,9 @@ names(training) <-
     "language_other",
     "URL",
     "inperson_or_online",
-    "inperson_organisation_responsible",
-    "inperson_organisation_responsible_other",
     "inperson_organisation_venue",
     "inperson_organisation_venue_other",
-    "online_type",
-    "online_organisation_responsible",
-    "online_organisation_responsible_other"
+    "online_type"
   )
 
 # fix punctuation for subject area & methods
@@ -283,7 +281,7 @@ names(archives) <-
     "contact_email",
     "Label",
     "Description",
-    "subject_area",
+    "Subjects",
     "methods",
     "Organisation",
     "Organisation_other",
@@ -316,7 +314,7 @@ names(learning_material) <-
     "contact_email",
     "Label",
     "Description",
-    "subject_area",
+    "Subjects",
     "methods",
     "Organisation",
     "Organisation_other",
@@ -328,7 +326,6 @@ names(learning_material) <-
     "language_other",
     "available_online",
     "material_URL",
-    "URL",
     "licence"
   )
 
@@ -354,7 +351,7 @@ names(unclassified) <-
     "contact_email",
     "Label",
     "Description",
-    "subject_area",
+    "Subjects",
     "methods",
     "Organisation",
     "Organisation_other",

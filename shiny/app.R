@@ -31,7 +31,7 @@ gs4_auth(email = "*@talarify.co.za", path = "~/stakeholder_map/.secret/GSHEET_AC
 
 
 ####### ------- READ in GOOGLE SHEET DATA ------- #######
-ss = "https://docs.google.com/spreadsheets/d/1dflPxRV-JEoOinBnf24hIm1tqSDCjtwLaGZWSR0VipA/edit#gid=369134759"
+ss = "https://docs.google.com/spreadsheets/d/1fUf6SbWQttVVCUAZ2jH9z24qua1BqO05Qv2lLNllsCU/edit#gid=0"
 
 locations <- read_sheet(ss, sheet = "Organisation_locations")
 
