@@ -1,4 +1,4 @@
-name: run_r_script_kumu_shiny #STILL DO TO: finalise google form questions, finalise R scripts, add secret, publish Shiny app and finalise script 
+name: run_r_script_kumu_shiny #STILL DO TO: publish Shiny app and finalise script 
 
 # Controls when the workflow will run
 on:
@@ -13,7 +13,7 @@ jobs:
     
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-      GSHEET_ACCESS_PASSWORD: ${{ secrets.GSHEET_ACCESS_PASSWORD }} # STILL TO ADD & NAME SECRET
+      GSHEET_ACCESS_PASSWORD: ${{ secrets.GSHEET_ACCESS_PASSWORD }}
     
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
