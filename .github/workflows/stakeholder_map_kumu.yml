@@ -1,9 +1,9 @@
 name: run_r_script_kumu_shiny #STILL DO TO: finalise google form questions, finalise R scripts, add secret, publish Shiny app and finalise script 
 
 # Controls when the workflow will run
-#on:
-#  schedule:
-#    - cron: '30 11 * * *'
+on:
+  schedule:
+    - cron: '23 12 * * *'
 
 jobs:
   # This workflow contains a single job called "build"
@@ -39,6 +39,6 @@ jobs:
           
       - name: step-2-run-script
         run: 
-          Rscript -e "source('scripts/convert_to_kumu.R')" # script to be edited when questions are finalised
+          Rscript -e "source('scripts/2a_data_for_kumu.R')" # script to be edited when questions are finalised
 
 
