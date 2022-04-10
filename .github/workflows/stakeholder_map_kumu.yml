@@ -1,9 +1,9 @@
-name: run_r_script_kumu_shiny #STILL DO TO: publish Shiny app and finalise script 
+name: run_r_script_kumu_shiny
 
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '39 12 * * *'
+    - cron: "05 13 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,11 +21,12 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
       - uses: actions/checkout@v3
       
       # set up R 
       - name: setup R
-      - uses: r-lib/actions/setup-r@main
+      - uses: r-lib/actions/setup-r@master
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
@@ -43,6 +44,6 @@ jobs:
           
       - name: step-2-run-script
         run: |
-          Rscript -e "source('scripts/2a_data_for_kumu.R')" # script to be edited when questions are finalised
+          Rscript -e "source('scripts/2a_data_for_kumu.R')"
 
 
