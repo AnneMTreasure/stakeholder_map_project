@@ -3,7 +3,7 @@ name: run_r_script_kumu_shiny #STILL DO TO: finalise google form questions, fina
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '23 12 * * *'
+    - cron: '39 12 * * *'
 
 jobs:
   # This workflow contains a single job called "build"
