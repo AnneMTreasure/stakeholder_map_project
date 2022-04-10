@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '39 12 * * *'
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   # This workflow contains a single job called "build"
   build:
@@ -18,16 +21,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       
       # set up R 
-      - uses: r-lib/actions/setup-r@master
+      - name: setup R
+      - uses: r-lib/actions/setup-r@main
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
       
       # set up Pandoc
-      - uses: r-lib/actions/setup-pandoc@master
+      #- uses: r-lib/actions/setup-pandoc@main
       
       - name: step-1-install-packages & Query dependencies
         run: |
@@ -38,7 +42,7 @@ jobs:
         shell: Rscript {0}
           
       - name: step-2-run-script
-        run: 
+        run: |
           Rscript -e "source('scripts/2a_data_for_kumu.R')" # script to be edited when questions are finalised
 
 
