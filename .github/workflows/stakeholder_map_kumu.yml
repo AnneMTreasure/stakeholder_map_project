@@ -3,7 +3,7 @@ name: run_r_script_kumu_shiny
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "05 13 * * *"
+    - cron: "21 13 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,11 +22,11 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v2
       
       # set up R 
       - name: setup R
-      - uses: r-lib/actions/setup-r@master
+        uses: r-lib/actions/setup-r@master
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
