@@ -1,9 +1,9 @@
 name: run_r_script_kumu_shiny
 
 # Controls when the workflow will run
-on:
-  schedule:
-    - cron: "21 13 * * *"
+#on:
+#  schedule:
+#    - cron: "21 13 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
